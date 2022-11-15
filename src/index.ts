@@ -4,6 +4,7 @@ import path from 'node:path';
 import cors from 'cors';
 import { router } from './router';
 
+
 mongoose.connect('mongodb+srv://marciomrb:junior123@dota2brasil.taiq4.mongodb.net/styla')
   .then(() => {
 
@@ -11,7 +12,7 @@ mongoose.connect('mongodb+srv://marciomrb:junior123@dota2brasil.taiq4.mongodb.ne
     const port = 3001;
 
     app.use(cors());
-    app.use('/uploads', express.static(path.resolve(__dirname, '..', 'uploads')));
+    app.use('/public', express.static(path.resolve(__dirname, '..', 'public')));
     app.use(express.json());
 
     app.use(router);
